@@ -1,0 +1,37 @@
+{
+    "name": "prisma-docker-postgres-starter",
+    "version": "1.0.0",
+    "description": "A starter repository demonstrating how to set up a development environment using Docker, Docker Compose, Prisma, and PostgreSQL",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "dev": "ts-node src/index.ts",
+        "prisma:migrate-dev": "prisma migrate dev --schema ./src/prisma/schema.prisma",
+        "prisma:migrate-create": "prisma migrate create --schema ./src/prisma/schema.prisma",
+        "prisma:migrate-deploy": "prisma migrate deploy --schema ./src/prisma/schema.prisma",
+        "prisma:db-pull": "prisma db pull --schema ./src/prisma/schema.prisma",
+        "prisma:db-push": "prisma db push --schema ./src/prisma/schema.prisma",
+        "prisma:generate": "prisma generate --schema ./src/prisma/schema.prisma",
+        "prisma:seed": "prisma db seed --schema ./src/prisma/schema.prisma",
+        "seed": "ts-node src/prisma/seed.ts",
+        "psql": "docker exec -it prisma_docker_starter_db psql -U user -d mydatabase"
+    },
+    "keywords": [
+        "docker",
+        "prisma",
+        "postgresql",
+        "typescript",
+        "nodejs"
+    ],
+    "dependencies": {
+        "@prisma/client": "^6.7.0",
+        "@types/node": "^22.15.3",
+        "prisma": "^6.7.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3"
+    },
+    "prisma": {
+        "seed": "ts-node src/prisma/seed.ts"
+    }
+}
