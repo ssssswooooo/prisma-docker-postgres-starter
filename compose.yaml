@@ -10,7 +10,7 @@ services:
       - DATABASE_URL=${DATABASE_URL}
     volumes:
       - .:/app
-    # command: npm start
+    command: tail -f /dev/null # index.tsを作成するまで暫定対応
     # ports:
     #   - "3000:3000"
 
