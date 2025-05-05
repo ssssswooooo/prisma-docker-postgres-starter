@@ -14,6 +14,7 @@
         "prisma:db-push": "prisma db push --schema ./src/prisma/schema.prisma",
         "prisma:generate": "prisma generate --schema ./src/prisma/schema.prisma",
         "prisma:seed": "prisma db seed --schema ./src/prisma/schema.prisma",
+        "prisma:studio": "prisma studio --schema ./src/prisma/schema.prisma --hostname 0.0.0.0",
         "seed": "ts-node src/prisma/seed.ts",
         "psql": "docker exec -it prisma_docker_starter_db psql -U user -d mydatabase"
     },
