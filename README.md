@@ -49,7 +49,6 @@ npm run psql
 ├── compose.yaml           # Dockerサービス設定
 ├── package.json           # Node.js設定・依存関係
 ├── tsconfig.json          # TypeScript設定
-├── .env                   # 環境変数
 ├── .dockerignore          # Dockerビルド除外ファイル
 ├── .gitignore             # Git除外ファイル
 └── src/                   # ソースコード
@@ -64,7 +63,9 @@ npm run psql
 このスターターには以下のデータモデルが含まれています：
 
 - **User**: ユーザー情報（名前、メールアドレスなど）
+  - テーブル名: `users`
 - **Post**: 投稿（タイトル、コンテンツ、公開状態など）
+  - テーブル名: `posts`
   - 各投稿はユーザーに関連付けられています（1対多の関係）
 
 ## 使用方法
@@ -90,7 +91,7 @@ docker compose exec app npx prisma migrate reset --force --schema ./src/prisma/s
 Prismaの管理UIを使用してデータを視覚的に操作するには：
 
 ```bash
-docker compose exec app npx prisma studio --schema ./src/prisma/schema.prisma
+docker compose exec app npm run prisma:studio
 ```
 
 その後、ブラウザで `http://localhost:5555` にアクセスします。
@@ -120,4 +121,11 @@ PostgreSQLに直接接続してSQLクエリを実行するには：
 
 ```bash
 npm run psql
+```
+
+SQL実行例：
+
+```sql
+SELECT * FROM users;
+SELECT * FROM posts;
 ```
