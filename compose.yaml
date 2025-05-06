@@ -11,7 +11,8 @@ services:
     volumes:
       - .:/app
     command: tail -f /dev/null # index.tsを作成するまで暫定対応
-    # ports:
+    ports:
+      - "5555:5555" # prisma studio用
     #   - "3000:3000"
 
   db:
